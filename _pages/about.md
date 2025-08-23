@@ -42,7 +42,7 @@ My name is Yuqiu Liu (刘育秋). I am a PhD student in Computing Science at Sim
 <a href="https://delta-lab-ai.github.io/" target="_blank">Prof. Wuyang Chen</a>.  
 My current research interests lie in 3D/4D fluid reconstruction.
 <br><br>
-I got my MS degree in Beijing Forestry University. I was working in 
+I received my MS degree from Beijing Forestry University. I worked at 
 <a href="https://brain.tsinghua.edu.cn/en/" target="_blank">Tsinghua Laboratory of Brain and Intelligence</a> for one year, 
 Qiyuan Lab for two years, advised by 
 <a href="https://xlhu.cn/" target="_blank">Prof. Xiaolin Hu</a> and 
@@ -71,7 +71,7 @@ Qiyuan Lab for two years, advised by
 
 <h2 style="text-align: left; margin-top: 30px;">Publications</h2>
 <div class="publications">
-  {% bibliography --max 10 %}
+  {% bibliography --max 4 %}
 </div>
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
