@@ -46,7 +46,7 @@ I received my MS degree from Beijing Forestry University. I worked at
 <a href="https://brain.tsinghua.edu.cn/en/" target="_blank">Tsinghua Laboratory of Brain and Intelligence</a> for one year, 
 Qiyuan Lab for two years, advised by 
 <a href="https://xlhu.cn/" target="_blank">Prof. Xiaolin Hu</a> and 
-<a href="https://scholar.google.com/citations?user=aPWa50IAAAAJ&hl=zh-TW" target="_blank">Prof. Liang Tang</a>.
+<a href="https://scholar.google.com/citations?user=aPWa50IAAAAJ" target="_blank">Prof. Liang Tang</a>.
 
 <div style="margin-top: 18px;">
 <a href="https://scholar.google.com/citations?user=ps_jKQwAAAAJ" style="margin-right: 15px;" target="_blank">
