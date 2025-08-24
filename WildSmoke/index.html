@@ -222,52 +222,6 @@
       </div>
     </section>
 
-    <section class="section hero is-light">
-      <div class="container is-max-desktop">
-        <!-- Concurrent Work. -->
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <h2 class="title is-3">Method Overview</h2>
-            <div class="content has-text-justified" style="max-width: 1200px">
-              <p>To reconstruct smoke from a single video in the wild, our pipeline includes five steps:</p>
-
-              <p>
-                1) Smoke extraction, with background removed for light smoke due to translucence. In real-world scenarios, smoke often presents
-                complex and irregular boundaries while being intertwined with significant noise from both the environment and background. To address
-                this challenge, we propose a pipeline that automatically extracts clean smoke regions from a single in-the-wild video.
-              </p>
-              <img src="./static/images/smoke_ext.png" style="max-width: 100%; height: auto" />
-              <p style="text-align: center; font-size: 14px">Smoke Extraction Process</p>
-              <p>
-                2) Pose estimation and coarse initialization for 3D point cloud. To obtain camera intrinsics and extrinsic matrices for frames, we
-                initialize camera poses, focals and Gaussians' positions with estimations from the pretrained
-                <a href="https://dust3r.europe.naverlabs.com/">DUSt3R</a>.
-              </p>
-
-              <p>
-                3) Inferring multi-views for smoke. To decouple the spatiotemporal view trajectory, in our work we consider generative multi-view
-                synthesis. To obtain multi-view supervision from single-view input, we adopt pretrained
-                <a href="https://huggingface.co/stabilityai/sv4d2.0">SV4D 2.0</a> to generate smoke videos from novel views.
-              </p>
-
-              <p>
-                4) Training smoke particles. The trained Gaussian checkpoints can be downloaded from
-                <a href="https://huggingface.co/datasets/qiuqiu99/WildSmoke/tree/main"><u>here</u></a
-                >.
-              </p>
-
-              <p>
-                5) Composition and simulation of 4D smoke assets. The 4D smoke vdb sequence can be downloaded from
-                <a href="https://huggingface.co/datasets/qiuqiu99/WildSmoke/tree/main"><u>here</u></a
-                >.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!--/ Concurrent Work. -->
-      </div>
-    </section>
-
     <section class="section hero">
       <div class="container is-max-desktop">
         <div class="hero-body">
