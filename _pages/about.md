@@ -73,7 +73,8 @@ Qiyuan Lab for two years, advised by
 <div class="publications">
   {% bibliography --query @*[abbr!=Preprint] %}
 </div>
----
+
+<hr>
 <h4 style="text-align: left; margin-top: 30px;">Preprints</h4>
 <div class="publications">
   {% bibliography --query @*[abbr=Preprint] %}

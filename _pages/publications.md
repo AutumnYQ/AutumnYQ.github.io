@@ -14,10 +14,10 @@ nav_order: 2
 {% include bib_search.liquid %}
 
 <div class="publications">
-  {% bibliography -query @*[abbr!=Preprint] %}
+  {% bibliography --query @*[abbr!=Preprint] %}
 </div>
----
+<hr>
 <h4 style="text-align: left; margin-top: 30px;">Preprints</h4>
 <div class="publications">
-  {% bibliography --query @*[abbr=preprint] %}
+  {% bibliography --query @*[abbr=Preprint] %}
 </div>
