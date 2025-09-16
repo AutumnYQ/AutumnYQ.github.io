@@ -71,7 +71,12 @@ Qiyuan Lab for two years, advised by
 
 <h2 style="text-align: left; margin-top: 30px;">Publications</h2>
 <div class="publications">
-  {% bibliography --max 4 %}
+  {% bibliography --query @*[abbr!=Preprint] %}
+</div>
+---
+<h4 style="text-align: left; margin-top: 30px;">Preprints</h4>
+<div class="publications">
+  {% bibliography --query @*[abbr=Preprint] %}
 </div>
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
