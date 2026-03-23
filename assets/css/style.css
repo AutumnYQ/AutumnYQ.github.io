@@ -340,6 +340,6 @@ footer {
   .social-links { justify-content: center; }
   .pub-card { flex-direction: column; }
   .pub-thumb-wrap { width: 100%; align-items: center; }
-  .pub-thumb { width: 160px; height: 120px; }
+  .pub-thumb { width: 160px; height: auto; }
   .nav-links { gap: 16px; }
 }
