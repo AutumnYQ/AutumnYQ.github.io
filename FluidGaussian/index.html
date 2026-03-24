@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FluidGaussian</title>
+  <link rel="icon" type="image/png" href="../assets/img/cat.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== Header ===== -->
+  <header class="page-header">
+    <div class="venue-badge">CVPR 2026</div>
+    <h1 class="page-title">
+      <span style="color:var(--accent)">FluidGaussian</span>: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction
+    </h1>
+    <div class="authors">
+      <a href="https://autumnyq.github.io/">Yuqiu Liu</a><sup>*</sup>,
+      <a href="https://scholar.google.com/citations?user=-zPtvfsAAAAJ&hl=en">Jialin Song</a><sup>*</sup>,
+      <a href="https://scholar.google.com/citations?user=ByxEbZEAAAAJ&hl=en">Marissa Ramirez de Chanlatte</a>,
+      <a href="https://scholar.google.com/citations?user=DVQjbr4AAAAJ&hl=en">Rochishnu Chowdhury</a>,
+      Rushil Paresh Desai,
+      <a href="https://www.sfu.ca/fas/computing/people/faculty/faculty-members/wuyang-chen.html">Wuyang Chen</a>,
+      <a href="https://scholar.google.com/citations?user=oXfed6oAAAAJ&hl=en">Daniel Martin</a>,
+      <a href="https://www.stat.berkeley.edu/~mmahoney/">Michael Mahoney</a>
+    </div>
+    <div class="affiliations">* equal contribution</div>
+    <div class="link-row">
+      <a class="btn" href="https://arxiv.org/abs/2603.21356" target="_blank">
+        <i class="fas fa-file-alt"></i> Paper
+      </a>
+      <a class="btn" href="https://github.com/delta-lab-ai/FluidGaussian" target="_blank">
+        <i class="fab fa-github"></i> Code
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== Teaser ===== -->
+  <section>
+    <div class="fig-wrap">
+      <img src="static/images/fig1.png" alt="Teaser" style="max-width: 50%;" />
+      <p class="fig-caption">
+        When only visual fidelity is optimized (left), reconstructions may look correct visually
+        and yet fail functionally: fluid simulation exhibits excessive velocity-field divergence,
+        worsening from low to high turbulence. With FluidGaussian (right), both visual fidelity
+        and simulation fidelity are better preserved.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Abstract ===== -->
+  <section>
+    <h2 class="section-title">Abstract</h2>
+    <div class="abstract-box">
+      <p>
+        Real objects that inhabit the physical world follow physical laws and thus behave plausibly
+        during interaction with other physical objects. However, current methods that perform 3D
+        reconstructions of real-world scenes from multi-view 2D images optimize primarily for
+        visual fidelity, overlooking body contacts and couplings, conflating function-critical
+        regions (e.g., aerodynamic or hydrodynamic surfaces) with ornamentation, and reconstructing
+        structures suboptimally, even when physical regularizers are added.
+      </p>
+      <p>
+        We propose <strong>FluidGaussian</strong>, a plug-and-play method that tightly couples
+        geometry reconstruction with ubiquitous fluid-structure interactions to assess surface
+        quality at high granularity. We define a simulation-based uncertainty metric induced by
+        fluid simulations and integrate it with active learning to prioritize views that improve
+        both visual and physical fidelity.
+      </p>
+      <p>
+        In an empirical evaluation on NeRF Synthetic (Blender), Mip-NeRF 360, and DrivAerNet++,
+        FluidGaussian yields up to <strong>+8.6% visual PSNR</strong> and
+        <strong>−62.3% velocity divergence</strong> during fluid simulations.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ===== Method ===== -->
+  <section>
+    <h2 class="section-title">Method</h2>
+    <div class="fig-wrap">
+      <img src="static/images/pipeline1.png" alt="Pipeline" />
+      <p class="fig-caption">
+        Overview of FluidGaussian. Physics-awareness is introduced into 3D reconstruction via
+        two steps: (1) a vision-based NBV method proposes K candidate camera poses; (2) a
+        physics-informed uncertainty score derived from fluid-structure simulations re-ranks
+        the candidates and selects the best next view.
+      </p>
+    </div>
+
+    <div class="steps" style="font-size:.83rem; gap:10px; margin-top:12px;">
+      <div class="step">
+        <div class="step-num" style="width:22px;height:22px;font-size:.72rem;flex-shrink:0;">1</div>
+        <div class="step-body"><strong>Vision-based candidates.</strong> An existing NBV planner (ActiveNeRF or FisherRF) proposes K candidate poses based on visual uncertainty.</div>
+      </div>
+      <div class="step">
+        <div class="step-num" style="width:22px;height:22px;font-size:.72rem;flex-shrink:0;">2</div>
+        <div class="step-body"><strong>Physics-informed re-ranking.</strong> 3D Gaussians are voxelized as a solid boundary; fluid particles (SPH) are released from five directions and per-Gaussian divergence is accumulated.</div>
+      </div>
+      <div class="step">
+        <div class="step-num" style="width:22px;height:22px;font-size:.72rem;flex-shrink:0;">3</div>
+        <div class="step-body"><strong>Next-best-view selection.</strong> Candidate poses are ranked by visibility-weighted divergence; the pose with highest physical uncertainty is selected.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== Results ===== -->
+  <section>
+    <h2 class="section-title">Results</h2>
+    <div class="fig-wrap">
+      <img src="static/images/visualize.png" alt="Qualitative results" />
+      <p class="fig-caption">
+        Visualization on Blender, MipNeRF360, and DrivAerNet++. Columns from left to right:
+        ActiveNeRF, ActiveNeRF + FluidGaussian, FisherRF, FisherRF + FluidGaussian, Ground Truth.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== BibTeX ===== -->
+  <section>
+    <h2 class="section-title">BibTeX</h2>
+    <div class="bibtex">
+      <pre>@inproceedings{liu2026fluidgaussian,
+  title     = {FluidGaussian: Propagating Simulation-Based Uncertainty
+               Toward Functionally-Intelligent 3D Reconstruction},
+  author    = {Liu, Yuqiu and Song, Jialin and Ramirez de Chanlatte, Marissa
+               and Chowdhury, Rochishnu and Desai, Rushil Paresh
+               and Chen, Wuyang and Martin, Daniel and Mahoney, Michael},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision
+               and Pattern Recognition (CVPR)},
+  year      = {2026}
+}</pre>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    &copy; 2026 Yuqiu Liu &nbsp;·&nbsp;
+    <a href="../index.html">Back to homepage</a>
+  </div>
+</footer>
+
+</body>
+</html>
